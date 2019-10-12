@@ -41,5 +41,5 @@ jobs:
             pipenv run python tests/browser.py
 
       - store_artifacts:
-          path: test-reports
-          destination: test-reports
+          path: output
+          destination: output

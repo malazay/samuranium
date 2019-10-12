@@ -18,6 +18,7 @@ behave = "*"
 jinja2 = "*"
 coverage = "*"
 sphinx = "*"
+pyunitreport = "*"
 
 [requires]
 python_version = "3.7"

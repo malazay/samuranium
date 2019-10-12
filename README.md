@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/malazay/samuranium.svg?style=svg)](https://circleci.com/gh/malazay/samuranium)
+
 # Samuranium Automation Framework
 
 Samuranium is an automation framework that uses Selenium and Appium for web and mobile testing.
