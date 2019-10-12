@@ -4,17 +4,17 @@ from samuranium_cli.bdd import create_bdd_project
 
 
 def setup():
-    print("Running setup. Emtpy for now")
+    print("Running setup. Empty for now")
     pass
 
 
 def create_config_files():
-    print("Running config files. Emtpy for now")
+    print("Running config files. Empty for now")
     pass
 
 
 def create_output_folder():
-    print("Running output folder. Emtpy for now")
+    print("Running output folder. Empty for now")
     pass
 
 
