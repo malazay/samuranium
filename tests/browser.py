@@ -19,7 +19,7 @@ class SimpleTest(unittest.TestCase):
         assert self.samuranium.wait_for_element('#js-link-box-en'), 'Element not displayed'
         self.samuranium.click_on_element('#js-link-box-en')
         assert self.samuranium.find_element('mp-topbanner'), 'banner not found'
-        self.samuranium.input_text_on_element('#searchInput', 'Michael Jordan')
+        self.samuranium.input_text_on_element('Michael Jordan', '#searchInput')
         self.samuranium.click_on_element('#searchButton')
         header = self.samuranium.find_element('#firstHeading')
         assert 'Michael Jordan' in header.text, 'Jordan not found'
