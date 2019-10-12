@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samuranium Execution Report</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr.failed {
+            background-color: red;
+        }
+        tr.skipped {
+            background-color: lightyellow;
+        }
+        h3.passed i {
+            color: forestgreen;
+        }
+        h3.failed i{
+            color: red;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<h1>Features</h1>
+<br>
+{% for feature in features %}
+    <div>
+        <h2>Feature: {{ feature.name }}</h2>
+        {% for scenario in feature.scenarios %}
+            <h3 class="{{ scenario.status.name }}">Scenario: {{ scenario.name }} <i class="fa {{ 'fa-check' if scenario.status.name == 'passed' else 'fa-times-circle' }}"></i></h3>
+            <table>
+                <tr>
+                    <td>Step</td>
+                    <td>Status</td>
+                    <td>Duration</td>
+                </tr>
+                {% for step in  scenario.steps %}
+                    <tr class="{{ step.status.name }}">
+                        <td>{{ step.name }}</td>
+                        <td>{{ step.status.name }}</td>
+                        <td>{{ step.duration|round(5) }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    </div>
+
+{% endfor %}
+
+</body>
+</html>

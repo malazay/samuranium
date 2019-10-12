@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+twine = "*"
+setuptools = "*"
+wheel = "*"
+autopep8 = "*"
+
+[packages]
+selenium = "*"
+webdriver-manager = "*"
+setuptools = "*"
+wheel = "*"
+behave = "*"
+jinja2 = "*"
+coverage = "*"
+sphinx = "*"
+
+[requires]
+python_version = "3.7"
