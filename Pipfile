@@ -3,11 +3,17 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
+[[source]]
+name = "test"
+url = "https://test.pypi.org/simple"
+verify_ssl = true
+
 [dev-packages]
 twine = "*"
 setuptools = "*"
 wheel = "*"
 autopep8 = "*"
+samu-todo = "*"
 
 [packages]
 selenium = "*"
@@ -19,6 +25,8 @@ jinja2 = "*"
 coverage = "*"
 sphinx = "*"
 pyunitreport = "*"
+appium-python-client = "*"
+allure-behave = "*"
 
 [requires]
 python_version = "3.7"

@@ -4,8 +4,7 @@ from samuranium.reporter import Reporter
 
 @fixture
 def set_browser(context):
-    context.samuranium: Samuranium = Samuranium()
-    context.browser = context.samuranium.get_browser()
+    Samuranium(context=context)
     yield context.browser
     # -- CLEANUP-FIXTURE PART:
     context.browser.quit()
@@ -15,11 +14,9 @@ def before_all(context):
 
 def after_all(context):
     Reporter(context)
-
     """
 
-sample_feature_file_string = """
-Feature: Browser Basic Interaction
+sample_feature_file_string = """Feature: Browser Basic Interaction
 
   Scenario: Open the Browser and Navigate to a Given Page
     Given I navigate to the url: "http://www.wikipedia.org"
@@ -45,4 +42,18 @@ def verify_this_project_levelstep(context):
     samuranium = context.samuranium
     element = samuranium.find_element('Wikipedia')
     assert element.text == 'Wikipedia'
+"""
+
+
+samuranium_config_file_string = """[browser]
+browser = chrome
+wait_time = 30
+
+[mobile]
+android_device = autoconfig
+ios_device = autoconfig
+chromedriver = 77.0.3865.40
+android_device_name = android
+android_platform_version = 8
+android_app_path = app.apk
 """

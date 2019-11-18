@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/malazay/samuranium.svg?style=svg)](https://circleci.com/gh/malazay/samuranium)
+[![CircleCI](https://circleci.com/gh/malazay/samuranium.svg?style=shield)](https://circleci.com/gh/malazay/samuranium)
 
 # Samuranium Automation Framework
 

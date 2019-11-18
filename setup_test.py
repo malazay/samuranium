@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="samuranium",
-    version="0.0.2",
+    version="0.5.8",
     author="Alexis Giovoglanian",
     author_email="alexisgiovoglanian@infovalue.com.ar",
     description="A test automation framework",
@@ -28,7 +28,8 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'create-samuranium-project = samuranium_cli.__main__:main'
+            'create-samuranium-project = samuranium_cli.__main__:main',
+            'samu = samuranium.__main__:main'
         ]
     }, package_data={'': [
     'samuranium/reporter/templates/*.html',
