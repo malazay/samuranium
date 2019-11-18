@@ -38,7 +38,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            pipenv run python tests/browser.py
+            pipenv run python tests/test_browser.py
 
       - store_artifacts:
           path: reports
