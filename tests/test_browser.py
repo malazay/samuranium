@@ -1,5 +1,6 @@
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from pyunitreport import HTMLTestRunner
@@ -10,7 +11,7 @@ from samuranium import Samuranium
 
 class SimpleTest(unittest.TestCase):
     def setUp(self):
-        pass
+        self.search_text = 'Michael Jordan'
 
     def search_wikipedia(self):
         self.assertIsNotNone(self.samuranium.get_browser(),
@@ -21,13 +22,14 @@ class SimpleTest(unittest.TestCase):
         self.assertTrue(self.samuranium.wait_for_element('#js-link-box-en'), 'Element not displayed')
         self.samuranium.click_on_element('#js-link-box-en')
         self.assertTrue(self.samuranium.find_element('mp-topbanner'), 'banner not found')
-        self.samuranium.input_text_on_element('Michael Jordan', '#searchInput')
+        self.samuranium.input_text_on_element(self.search_text, '#searchInput')
         self.samuranium.click_on_element('#searchButton')
-        header = self.samuranium.find_element('#firstHeading')
-        self.assertTrue('Michael Jordan' in header.text, 'Jordan not found')
+        header = self.samuranium.find_element("//h1[text()='{}']".format(self.search_text))
+        self.assertTrue(self.search_text in header.text, 'Expected: "{}" - Found: "{}"'.format(header.text,
+                                                                                               self.search_text))
 
     def test_chrome(self):
-        self.samuranium = Samuranium()
+        self.samuranium = Samuranium(selected_browser='chrome')
         self.search_wikipedia()
 
     def test_firefox(self):

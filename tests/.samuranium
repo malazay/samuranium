@@ -1,0 +1,11 @@
+[browser]
+browser = chrome
+wait_time = 30
+
+[mobile]
+android_device = autoconfig
+ios_device = autoconfig
+chromedriver = 77.0.3865.40
+android_device_name = android
+android_platform_version = 8
+android_app_path = app.apk

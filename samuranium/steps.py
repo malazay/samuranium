@@ -49,7 +49,7 @@ def wait_for_element(context, selector):
         selector: A string matching the intended web element
 
     """
-    context.samuranium.wait_for_element(selector)
+    return context.samuranium.wait_for_element(selector)
 
 
 @step('I click on element with selector: "{selector}"')
@@ -81,4 +81,22 @@ def write_text_on_element(context, text, selector):
         selector: A string matching the intended web element
 
     """
-    context.samuranium.input_text_on_element(selector, text)
+    context.samuranium.input_text_on_element(text, selector)
+
+
+@step('I verify the text of element "{selector}" is "{text}"')
+def verify_text_content(context, selector, text):
+    """
+     Verifies text on an element matches the given value
+
+    Example:
+        Then I verify the text of element ".EnglishLink" is "English"
+    Args:
+        context: behave context
+        text: string with text to be matched
+        selector: A string matching the intended web element
+    """
+    element_text = context.samuranium.find_element(selector).text
+    assert element_text == text, 'Error: Expected: "{}" found "{}"'.format(text, element_text)
+
+

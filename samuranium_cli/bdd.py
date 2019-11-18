@@ -1,10 +1,7 @@
 import os
 
 from samuranium_cli.templates import env_file_string, sample_steps_file_string, sample_feature_file_string
-
-
-def get_working_directory():
-    return os.getcwd()
+from samuranium_cli.utils import get_working_directory
 
 
 def create_bdd_files(features_folder_path, steps_folder_path):

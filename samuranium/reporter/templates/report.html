@@ -49,12 +49,15 @@
                 <tr>
                     <td>Step</td>
                     <td>Status</td>
+                    <td>Screenshot</td>
                     <td>Duration</td>
                 </tr>
                 {% for step in  scenario.steps %}
                     <tr class="{{ step.status.name }}">
+
                         <td>{{ step.name }}</td>
                         <td>{{ step.status.name }}</td>
+                        <td>{% if step.status.name == 'failed' %} <a href="{{ step.screenshot }}">{{ step.screenshot }}</a>  {% endif %}</td>
                         <td>{{ step.duration|round(5) }}</td>
                     </tr>
                 {% endfor %}
